@@ -95,8 +95,8 @@ A comprehensive performance analysis project demonstrating the critical impact o
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd HPA_Project
+   git clone https://github.com/Jkdxbns/VGG16-Memory-Optimization.git
+   cd VGG16-Memory-Optimization
    ```
 
 2. **Install Python dependencies** (for model export)

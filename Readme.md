@@ -150,19 +150,8 @@ cd build
 ```
 
 **Expected Output:**
-```
-Starting VGG16 Inference:
+```(Refer to report attached)```
 
---- Summary ---
-Total CPU Time: 723.45 ms
-Total GPU Time: 98.23 ms
-Total Non-Coalesced GPU Time: 287.91 ms
-
---- Classification Result ---
-CPU Prediction:        class 281 → tabby cat
-GPU (Coalesced) Pred:  class 281 → tabby cat
-GPU (Uncoalesced) Pred: class 281 → tabby cat
-```
 
 **Try other images:**
 ```bash
@@ -205,28 +194,28 @@ Unlike typical deep learning projects that use PyTorch's built-in GPU operations
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                     main.cpp                            │
-│  ┌───────────────────────────────────────────────┐     │
-│  │ For each Conv2D layer:                        │     │
-│  │  1. Extract weights from TorchScript model    │     │
-│  │  2. Launch three parallel executions:         │     │
-│  │                                                │     │
-│  │     CPU Path → TorchScript forward()          │     │
-│  │                                                │     │
-│  │     GPU Opt  → run_conv_gpu()                 │     │
-│  │                  ↓ gpu.cpp                     │     │
-│  │                  ↓ launch_conv2d_naive()       │     │
-│  │                  ↓ gpu.cu                      │     │
-│  │                  ↓ conv2d_naive_kernel<<<>>>   │     │
-│  │                                                │     │
-│  │     GPU NC   → run_convnc_gpu()               │     │
-│  │                  ↓ gpu.cpp                     │     │
-│  │                  ↓ launch_conv2d_uncoalesced() │     │
-│  │                  ↓ gpu.cu                      │     │
-│  │                  ↓ conv2d_uncoalesced_kernel   │     │
-│  │                                                │     │
-│  │  3. Measure execution time for each           │     │
-│  │  4. Calculate L2 error for validation         │     │
-│  └───────────────────────────────────────────────┘     │
+│  ┌─────────────────────────────────────────────────┐    │
+│  │ For each Conv2D layer:                          │    │
+│  │  1. Extract weights from TorchScript model      │    │
+│  │  2. Launch three parallel executions:           │    │
+│  │                                                 │    │
+│  │     CPU Path → TorchScript forward             │    │
+│  │                                                 │    |
+│  │     GPU Opt  → run_conv_gpu()                  │    │
+│  │                  ↓ gpu.cpp                     │    │
+│  │                  ↓ launch_conv2d_naive()       │    │
+│  │                  ↓ gpu.cu                      │    │
+│  │                  ↓ conv2d_naive_kernel<<<>>>   |    │
+│  │                                                 |    │
+│  │     GPU NC   → run_convnc_gpu()                │    │
+│  │                  ↓ gpu.cpp                     │    │
+│  │                  ↓ launch_conv2d_uncoalesced() │    │
+│  │                  ↓ gpu.cu                      │    │
+│  │                  ↓ conv2d_uncoalesced_kernel   │    │
+│  │                                                 │    │
+│  │  3. Measure execution time for each             │    │
+│  │  4. Calculate L2 error for validation           │    │
+│  └─────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────┘
 ```
 

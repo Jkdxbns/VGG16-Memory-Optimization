@@ -10,7 +10,7 @@ A comprehensive performance analysis project demonstrating the critical impact o
 - 🚀 **GPU Optimized** - Custom memory-coalesced CUDA kernel (3-5× faster)
 - 🐌 **GPU Uncoalesced** - Intentionally inefficient baseline kernel
 
-**Key Finding:** Proper memory coalescing yields **3-5× performance improvement** over naive GPU implementations, demonstrating that memory access patterns matter more than raw compute power for Conv2D operations.
+**Key Finding:** Proper memory coalescing yields **2-3× performance improvement** over naive GPU implementations, demonstrating that memory access patterns matter more than raw compute power for Conv2D operations.
 
 ---
 

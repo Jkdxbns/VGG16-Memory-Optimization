@@ -26,12 +26,7 @@ A comprehensive performance analysis project demonstrating the critical impact o
 - ✅ **Comprehensive Validation** - Layer-wise L2 norm error calculation
 
 ### Performance Results (Typical)
-
-| Execution Path | Total Time | Speedup | Memory Efficiency |
-|---------------|-----------|---------|-------------------|
-| CPU (TorchScript) | 500-1000ms | 1.0× | N/A |
-| GPU Optimized | 50-150ms | **5-10×** | 80-90% peak BW |
-| GPU Uncoalesced | 200-400ms | 2-3× | 20-40% peak BW |
+```(Refer to the report attached for details)```
 
 ### Features
 

@@ -42,7 +42,7 @@ A comprehensive performance analysis project demonstrating the critical impact o
 - 📚 **Educational value** for understanding GPU memory hierarchy
 
 ## Folder Structure
-'''text
+'''
 ./HPA_Project
 ├── build
 ├── CMakeLists.txt

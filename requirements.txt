@@ -1,0 +1,87 @@
+# Python Dependencies for VGG16 Conv2D CUDA Benchmark
+# These are required for the model export script (scripts/export_vgg16.py)
+
+# Core deep learning framework
+torch>=1.13.0
+torchvision>=0.14.0
+
+# Optional: For visualization and analysis
+# numpy>=1.21.0
+# matplotlib>=3.5.0
+# pillow>=9.0.0
+
+# Development tools (optional)
+# jupyter>=1.0.0
+# ipython>=8.0.0
+
+# ============================================================================
+# Installation Instructions:
+# ============================================================================
+#
+# 1. Create a virtual environment (recommended):
+#    python -m venv venv
+#    source venv/bin/activate  # On Linux/Mac
+#    # OR
+#    venv\Scripts\activate     # On Windows
+#
+# 2. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 3. For CUDA-enabled PyTorch, use the appropriate wheel:
+#    # CUDA 11.8:
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+#    # CUDA 12.1:
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+#    # CPU-only (for model export on machines without GPU):
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# ============================================================================
+# System Dependencies (NOT installed via pip):
+# ============================================================================
+#
+# For building and running the C++/CUDA project, you also need:
+#
+# 1. CUDA Toolkit >= 11.0
+#    Download: https://developer.nvidia.com/cuda-downloads
+#
+# 2. LibTorch (C++ distribution of PyTorch) >= 1.13
+#    Download: https://pytorch.org/get-started/locally/
+#    Select: C++/CUDA version/LibTorch
+#
+# 3. OpenCV >= 4.5
+#    Ubuntu/Debian: sudo apt install libopencv-dev
+#    Fedora/RHEL:   sudo dnf install opencv-devel
+#    macOS:         brew install opencv
+#
+# 4. CMake >= 3.18
+#    Ubuntu/Debian: sudo apt install cmake
+#    Fedora/RHEL:   sudo dnf install cmake
+#    macOS:         brew install cmake
+#
+# 5. GCC/G++ >= 9.0 with C++17 support
+#    Ubuntu/Debian: sudo apt install build-essential
+#    Fedora/RHEL:   sudo dnf groupinstall "Development Tools"
+#    macOS:         xcode-select --install
+#
+# ============================================================================
+# GPU Requirements:
+# ============================================================================
+#
+# - NVIDIA GPU with Compute Capability >= 7.5 (Turing architecture or newer)
+# - 8+ GB GPU memory (for full VGG16 model)
+# - NVIDIA driver version compatible with CUDA toolkit
+#
+# Check your GPU compute capability:
+#    nvidia-smi --query-gpu=name,compute_cap --format=csv
+#
+# Common GPUs and their compute capabilities:
+# - RTX 40xx series (Ada):      8.9
+# - RTX 30xx series (Ampere):   8.6
+# - RTX 20xx series (Turing):   7.5
+# - GTX 16xx series (Turing):   7.5
+# - Tesla A100:                 8.0
+# - Tesla V100:                 7.0
+#
+# ============================================================================
